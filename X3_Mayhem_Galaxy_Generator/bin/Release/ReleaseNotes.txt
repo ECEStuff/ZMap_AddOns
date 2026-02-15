@@ -1,4 +1,11 @@
-﻿1.8.2	Fixed bug where it would say the custom music folder didn't exist.
+﻿-------------------------------------------------- ZMap Add-Ons -------------------------------------------------
+
+1.8.3   (Add-Ons) Added support for Xenon Defect gamestart.
+
+
+-------------------------------------------------- Original ZMap ------------------------------------------------
+
+1.8.2	Fixed bug where it would say the custom music folder didn't exist.
 1.8.1	Added ability to change music for a specific sector using the sector editor.
 1.8.0	Added custom music folder capability
 1.7.8	Fixed issue with the ship randomizer raising laser generator above 2 Million.  This is a fixed X3 limit which if exceeded, will cause lasers to not fire at all.
