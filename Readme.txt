@@ -1,5 +1,11 @@
 X3 Albion Prelude  Mayhem 3 Map Editor - Original by Mordan
 
-This is a fork of ZMap which modifies the existing ZMap source code to support Renegades Add-Ons gamestarts. This version of ZMap adds the Xenon Defect gamestart to Add-Ons.
-
 Renegades Add-Ons: https://github.com/ECEStuff/Renegades_AddOns
+
+ZMap was originally created by Mordan. The source was publicly released on GitHub as v1.8.2. 
+
+This repository preserves the original project and extends it to support features introduced in Renegades Add-Ons.
+
+All original design and core functionality remain unchanged and credited to Mordan.
+
+
