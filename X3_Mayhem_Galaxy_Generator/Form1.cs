@@ -130,7 +130,7 @@ namespace X3_Mayhem_Galaxy_Generator
             m_ShowStats = GetShowSetting("ShowStats");
 
             string ver = X3Utils.GetVersion();
-            this.Text = $"ZMap V{ver} - Created by Hairless-Ape";
+            this.Text = $"ZMap V{ver} - Created by Hairless-Ape, Modified by herobetty for Renegades Add-Ons";
 
             SetupLocalization();
             UpdateRelationsGrid();

@@ -34,6 +34,7 @@ namespace X3_Mayhem_Galaxy_Generator
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtb1 = new System.Windows.Forms.RichTextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnCustomMusic = new System.Windows.Forms.Button();
             this.btnHelpMain = new System.Windows.Forms.Button();
             this.cbChaoticStart = new System.Windows.Forms.CheckBox();
             this.cbPeacefulStart = new System.Windows.Forms.CheckBox();
@@ -101,6 +102,7 @@ namespace X3_Mayhem_Galaxy_Generator
             this.tbFog = new System.Windows.Forms.TrackBar();
             this.cbUseParticles = new System.Windows.Forms.CheckBox();
             this.gbMusic = new System.Windows.Forms.GroupBox();
+            this.rbCustom = new System.Windows.Forms.RadioButton();
             this.rbAllMusic = new System.Windows.Forms.RadioButton();
             this.rbLitcubeMusic = new System.Windows.Forms.RadioButton();
             this.rbBasicMusic = new System.Windows.Forms.RadioButton();
@@ -138,8 +140,6 @@ namespace X3_Mayhem_Galaxy_Generator
             this.btnShowSectorStats = new System.Windows.Forms.ToolStripButton();
             this.btnLaunchWeaponsEditor = new System.Windows.Forms.ToolStripButton();
             this.lblWarning = new System.Windows.Forms.ToolStripLabel();
-            this.btnCustomMusic = new System.Windows.Forms.Button();
-            this.rbCustom = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -234,6 +234,17 @@ namespace X3_Mayhem_Galaxy_Generator
             this.splitContainer1.Size = new System.Drawing.Size(1514, 940);
             this.splitContainer1.SplitterDistance = 434;
             this.splitContainer1.TabIndex = 25;
+            // 
+            // btnCustomMusic
+            // 
+            this.btnCustomMusic.BackColor = System.Drawing.Color.Linen;
+            this.btnCustomMusic.Location = new System.Drawing.Point(286, 536);
+            this.btnCustomMusic.Name = "btnCustomMusic";
+            this.btnCustomMusic.Size = new System.Drawing.Size(134, 23);
+            this.btnCustomMusic.TabIndex = 94;
+            this.btnCustomMusic.Text = "Custom Music folder";
+            this.btnCustomMusic.UseVisualStyleBackColor = false;
+            this.btnCustomMusic.Click += new System.EventHandler(this.btnCustomMusic_Click);
             // 
             // btnHelpMain
             // 
@@ -1064,6 +1075,17 @@ namespace X3_Mayhem_Galaxy_Generator
             this.gbMusic.TabStop = false;
             this.gbMusic.Text = "System Music Files";
             // 
+            // rbCustom
+            // 
+            this.rbCustom.AutoSize = true;
+            this.rbCustom.Enabled = false;
+            this.rbCustom.Location = new System.Drawing.Point(192, 20);
+            this.rbCustom.Name = "rbCustom";
+            this.rbCustom.Size = new System.Drawing.Size(60, 17);
+            this.rbCustom.TabIndex = 3;
+            this.rbCustom.Text = "Custom";
+            this.rbCustom.UseVisualStyleBackColor = true;
+            // 
             // rbAllMusic
             // 
             this.rbAllMusic.AutoSize = true;
@@ -1434,28 +1456,6 @@ namespace X3_Mayhem_Galaxy_Generator
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(600, 22);
             this.lblWarning.Text = "toolStripLabel1";
-            // 
-            // btnCustomMusic
-            // 
-            this.btnCustomMusic.BackColor = System.Drawing.Color.Linen;
-            this.btnCustomMusic.Location = new System.Drawing.Point(286, 536);
-            this.btnCustomMusic.Name = "btnCustomMusic";
-            this.btnCustomMusic.Size = new System.Drawing.Size(134, 23);
-            this.btnCustomMusic.TabIndex = 94;
-            this.btnCustomMusic.Text = "Custom Music folder";
-            this.btnCustomMusic.UseVisualStyleBackColor = false;
-            this.btnCustomMusic.Click += new System.EventHandler(this.btnCustomMusic_Click);
-            // 
-            // rbCustom
-            // 
-            this.rbCustom.AutoSize = true;
-            this.rbCustom.Enabled = false;
-            this.rbCustom.Location = new System.Drawing.Point(192, 20);
-            this.rbCustom.Name = "rbCustom";
-            this.rbCustom.Size = new System.Drawing.Size(60, 17);
-            this.rbCustom.TabIndex = 3;
-            this.rbCustom.Text = "Custom";
-            this.rbCustom.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
