@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace X3_Mayhem_Galaxy_Generator
 {
@@ -75,7 +76,15 @@ namespace X3_Mayhem_Galaxy_Generator
 
             if (X3Utils.RaceIsMain(sector.r))
             {
-                int xindx = sector.r == (int)ERace.Terran ? 5 : sector.r - 1;
+                // ZMap 1.8.5: Fixed for Xenon Defect.
+                int xindx;
+                if (sector.r == (int)ERace.Terran)
+                    xindx = 5;
+                else if (sector.r == (int)ERace.Xenon)
+                    xindx = 6;
+                else
+                    xindx = sector.r - 1;
+
                 int x = X3Galaxy.Instance.GalaxyCreationSettings.StartSectors[xindx, 0]; 
                 int y = X3Galaxy.Instance.GalaxyCreationSettings.StartSectors[xindx, 1];
                 if (sector.x == x && sector.y == y)
@@ -227,8 +236,15 @@ namespace X3_Mayhem_Galaxy_Generator
                     int x = cbStartSector.Checked ? m_Sector.x : -1;
                     int y = cbStartSector.Checked ? m_Sector.y : -1;
                     // for the currently selected owner, set this as their startup location.
+                    // ZMap 1.8.5: Xenon Defect starts use index 6.
 
-                    int xindx = m_Sector.r == (int)ERace.Terran ? 5 : m_Sector.r - 1;
+                    int xindx;
+                    if (m_Sector.r == (int)ERace.Terran)
+                        xindx = 5;
+                    else if (m_Sector.r == (int)ERace.Xenon)
+                        xindx = 6;
+                    else
+                        xindx = m_Sector.r - 1;
 
                     X3Galaxy.Instance.GalaxyCreationSettings.StartSectors[xindx, 0] = x;         // Sector starts are 1-based, whereas sector x,y locations are 0 based.
                     X3Galaxy.Instance.GalaxyCreationSettings.StartSectors[xindx, 1] = y;

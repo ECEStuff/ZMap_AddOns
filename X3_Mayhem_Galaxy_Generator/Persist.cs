@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using static System.Collections.Specialized.BitVector32;
 
 namespace X3_Mayhem_Galaxy_Generator
 {
@@ -754,7 +755,15 @@ namespace X3_Mayhem_Galaxy_Generator
                         break;
                 }
 
-                int xindx = race == ERace.Terran ? 5 : (int)race - 1;
+                // ZMap 1.8.5: Fixed for Xenon Defect.
+                int xindx;
+                if (race == ERace.Terran)
+                    xindx = 5;
+                else if (race == ERace.Xenon)
+                    xindx = 6;
+                else
+                    xindx = (int)race - 1;
+
                 int x = X3Galaxy.Instance.GalaxyCreationSettings.StartSectors[xindx, 0];
                 int y = X3Galaxy.Instance.GalaxyCreationSettings.StartSectors[xindx, 1];
                 if (x == -1 || y == -1)       // for this race, means generate a random start location.

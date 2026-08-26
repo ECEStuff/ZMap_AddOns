@@ -72,14 +72,16 @@ namespace X3_Mayhem_Galaxy_Generator
             {0, 0, 0, 0, 0, 0}                // Terran
         };
 
-        public int[,] StartSectors = new int[6, 2]
+        // ZMap 1.8.5: Fix Xenon Defect not having manual start location!
+        public int[,] StartSectors = new int[7, 2]
         {
             {-1, -1},                       // Argon Starting Coordinates. 0, 0 for random
             {-1, -1},                       // Boron
             {-1, -1},                       // Split
             {-1, -1},                       // Paranid
             {-1, -1},                       // Teladi
-            {-1, -1}                        // Terrans
+            {-1, -1},                       // Terran
+            {-1, -1}                        // Xenon
         };
 
         public bool PeacefulStart;

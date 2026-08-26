@@ -579,7 +579,15 @@ namespace X3_Mayhem_Galaxy_Generator
                     bool isStartingSector = false;
                     if (X3Utils.RaceIsMain(sector.r))
                     {
-                        int xindx = sector.r == (int)ERace.Terran ? 5 : (int)sector.r - 1;
+                        // ZMap 1.8.5: Fixed for Xenon Defect.
+                        int xindx;
+                        if (sector.r == (int)ERace.Terran)
+                            xindx = 5;
+                        else if (sector.r == (int)ERace.Xenon)
+                            xindx = 6;
+                        else
+                            xindx = sector.r - 1;
+
                         int racestartingx = X3Galaxy.Instance.GalaxyCreationSettings.StartSectors[xindx, 0];
                         int racestartingy = X3Galaxy.Instance.GalaxyCreationSettings.StartSectors[xindx, 1];
                         if (racestartingx == xCoordinate && racestartingy == yCoordinate)

@@ -51,7 +51,8 @@ namespace X3_Mayhem_Galaxy_Generator
         public static bool RaceIsMain(int race)
         {
             // Add-Ons 1.8.1: Changed bound from 1-5 to 1-6 (Xenon)
-            if ((race > 0 && race < 7) || (race == (int)ERace.Terran)) return true;
+            if ((race > 0 && race < 7) || (race == (int)ERace.Terran)) 
+                return true;
             return false;
         }
         
@@ -108,10 +109,59 @@ namespace X3_Mayhem_Galaxy_Generator
             if (File.Exists(path))
             {
                 string settings = File.ReadAllText(path);
-                return JsonConvert.DeserializeObject<GalaxySettings>(settings);
+                GalaxySettings gs = JsonConvert.DeserializeObject<GalaxySettings>(settings);
+
+                if (gs == null)
+                    return new GalaxySettings();
+
+                // ZMap 1.8.5: Migrate old 6x2 StartSectors arrays to 7x2 for Xenon Defect.
+                if (gs.StartSectors == null ||
+                    gs.StartSectors.GetLength(0) != 7 ||
+                    gs.StartSectors.GetLength(1) != 2)
+                {
+                    int[,] oldStartSectors = gs.StartSectors;
+                    int[,] newStartSectors = new int[7, 2];
+
+                    // Default all starts to random.
+                    for (int x = 0; x < 7; x++)
+                    {
+                        newStartSectors[x, 0] = -1;
+                        newStartSectors[x, 1] = -1;
+                    }
+
+                    // Preserve whatever valid old entries exist.
+                    if (oldStartSectors != null)
+                    {
+                        int rows = Math.Min(oldStartSectors.GetLength(0), 7);
+                        int columns = Math.Min(oldStartSectors.GetLength(1), 2);
+
+                        for (int x = 0; x < rows; x++)
+                        {
+                            for (int y = 0; y < columns; y++)
+                            {
+                                newStartSectors[x, y] = oldStartSectors[x, y];
+                            }
+                        }
+                    }
+
+                    gs.StartSectors = newStartSectors;
+                }
+
+                return gs;
             }
+
             return new GalaxySettings();
         }
+
+        //public static GalaxySettings LoadSettingsFile(string path)
+        //{
+        //    if (File.Exists(path))
+        //    {
+        //        string settings = File.ReadAllText(path);
+        //        return JsonConvert.DeserializeObject<GalaxySettings>(settings);
+        //    }
+        //    return new GalaxySettings();
+        //}
 
         public static string GetXMLAttribute(string src, string attr)
         {
